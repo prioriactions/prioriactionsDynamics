@@ -1,9 +1,9 @@
 
-# dynamicsthR: Dynamic Conservation Action Planning with Mathematical Modeling
+# prioriactionsDynamics: Dynamic Conservation Action Planning with Mathematical Modeling
 
 ## Overview
 
-The `dynamicsthR` package is a powerful tool designed for deterministic dynamic mathematical modeling, specifically tailored for guiding conservation action planning. By utilizing integer programming models, this package simulates various threats, aiding decision-makers in determining optimal conservation actions, their locations, and timing.
+The `prioriactionsDynamics` package is a powerful tool designed for deterministic dynamic mathematical modeling, specifically tailored for guiding conservation action planning. By utilizing integer programming models, this package simulates various threats, aiding decision-makers in determining optimal conservation actions, their locations, and timing.
 
 ## Overview
 
@@ -11,9 +11,9 @@ Ensure you have the "remotes" package installed. If not, install it using the fo
 
 ``` r
 if (!require(remotes)) install.packages("remotes")
-remotes::install_github("josesalgr/dynamicsthR")
+remotes::install_github("prioriactions/prioriactionsDynamics")
 
-library(dynamicsthR)
+library(prioriactionsDynamics)
 ```
 
 ## Usage
@@ -34,7 +34,7 @@ The package follows a clear three-step process:
 Example:
 
 ```{r, echo=FALSE}
-data <- dynamicsthR::instance(type = "simulation")
+data <- prioriactionsDynamics::instance(type = "simulation")
 ```
 
 2.  **`model()`**: Create a dynamic model based on input parameters. This function takes input parameters and uses them to create a dynamic model. The model is designed for dynamic actions, and the input should be a list containing various components. It return a mathematical model based on the input parameters.
@@ -47,7 +47,7 @@ data <- dynamicsthR::instance(type = "simulation")
 Example:
 
 ```{r, echo=FALSE}
-m <- dynamicsthR::model(
+m <- prioriactionsDynamics::model(
   input = data,
   levels = 3,
   periods = 5,
@@ -65,7 +65,7 @@ m <- dynamicsthR::model(
 Example:
 
 ```{r, echo=FALSE}
-solution <- dynamicsthR:solve(model = m, solver = "gurobi")
+solution <- prioriactionsDynamics:solve(model = m, solver = "gurobi")
 
 ```
 
@@ -84,7 +84,7 @@ These functions can be valuable for further analysis and decision-making based o
 To showcase the capabilities of the `dynamicsthR` package, we present a simulated example. In this scenario, we begin by defining an expansion type matrix (`expType`) with a single non-zero element representing a specific place where the threat appear. We then use the `instance()` function to generate simulated inputs for a dynamic conservation model. These inputs include specifications for one threat, a 10 x 10 grid of units (100 in total), and two species, both responsive to the threat. With predefined threat locations and the previously defined expansion type (see the Figure below). Subsequently, we create a dynamic model (`m1`) using the `model()` function, specifying the desired maximum levels of intensity of the threat, number of planning periods, and an annual budget. Finally, we employ the `solve()` function to solve the optimization problem and obtain the solution (`sol`). This example provides a starting point for understanding the workflow of the `dynamicsthR` package, from input generation to solving dynamic conservation planning problems. Feel free to modify the parameters and inputs.
 
 ```{r, echo=FALSE}
-library(dynamicsthR)
+library(prioriactionsDynamics)
 
 expType <- matrix(0, nrow = 1, ncol = 3)
 expType[1] <- 1
@@ -92,7 +92,7 @@ expType[1] <- 1
 thr_lloc <- rep(0, 100)
 thr_lloc[10] <- 1
 
-inputs <- dynamicsthR::instance(type = "simulation", threats = 1, n = 10, species = 2, threats_lloc = thr_lloc,
+inputs <- prioriactionsDynamics::instance(type = "simulation", threats = 1, n = 10, species = 2, threats_lloc = thr_lloc,
 	  expansionType = expType)
 
 ```
@@ -105,8 +105,8 @@ In the initial scenario, we employed an expansion type characterized solely as r
 m1 <- model(input = inputs, levels = 4L, periods = 10L, budget = 6)
 sol <- dynamicsthR::solve(m1, solver = "gurobi")
 
-actions <- dynamicsthR::getActions(sol)
-prop <- dynamicsthR::getPropagation(sol)
+actions <- prioriactionsDynamics::getActions(sol)
+prop <- prioriactionsDynamics::getPropagation(sol)
 ```
 We obtain:
 
