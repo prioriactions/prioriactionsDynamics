@@ -141,7 +141,7 @@ example provides a starting point for understanding the workflow of the
 dynamic conservation planning problems. Feel free to modify the
 parameters and inputs.
 
-![](Merged_document.png)
+![](inst/extdata/example_data/Merged_document.png)
 
 In the initial scenario, we employed an expansion type characterized
 solely as radial, featuring a velocity of 1 (representing the distance
@@ -154,13 +154,13 @@ threats.
 
 We obtain:
 
-![](v1.gif)
+![](inst/extdata/example_data/v1.gif)
 
 In the following scenario, we introduce an increased propagation
 velocity (of 2 units of distance), and we observe that higher budget
 values are required to contain or eliminate the threat.
 
-![](v2.gif)
+![](inst/extdata/example_data/v2.gif)
 
 While these are demonstrative examples, the problem becomes more
 intricate when considering additional species or other planning
@@ -290,7 +290,7 @@ animation below illustrates how threats (in red) propagate across the
 landscape over time and how management actions (in blue) are deployed to
 mitigate their impact.
 
-![](sol_animation_b100_actions.gif)
+![](inst/extdata/Mitchell_data/sol_animation_b100_actions.gif)
 
 In this scenario, the threat originates in the northwest region and
 expands radially. Management actions are sparse and concentrated in very
@@ -315,7 +315,7 @@ period. The following animation displays the resulting spatial and
 temporal dynamics of threat propagation and action deployment under this
 moderate investment level.
 
-![](sol_animation_b300_actions.gif)
+![](inst/extdata/Mitchell_data/sol_animation_b300_actions.gif)
 
 With this budget level, the management strategy becomes noticeably more
 robust. We observe earlier and more spatially distributed actions being
@@ -338,7 +338,7 @@ This scenario reflects a higher investment of 500 units per period. The
 following animation illustrates how this level of budget affects the
 spatial allocation of actions and the containment of the threat.
 
-![](sol_animation_b500_actions.gif)
+![](inst/extdata/Mitchell_data/sol_animation_b500_actions.gif)
 
 With this budget, the model demonstrates an enhanced capacity to contain
 the threat’s progression. The spatial coverage of actions increases
@@ -358,7 +358,7 @@ This final scenario corresponds to the highest investment level tested:
 600 units per period. The animation below shows the outcome of this
 strategy.
 
-![](sol_animation_b600_actions.gif)
+![](inst/extdata/Mitchell_data/sol_animation_b600_actions.gif)
 
 At this level of investment, the management strategy is able to not only
 contain the threat but also eliminate it entirely from the landscape.
