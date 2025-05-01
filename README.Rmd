@@ -165,13 +165,13 @@ The file `Radial_id118.dat` used in this example follows a structured plain text
 
 This structure ensures all the necessary elements are in place for building a dynamic and spatially explicit optimization model.
 
-```{r}
+```{r, eval = FALSE}
 # Load the spatial data (planning units and species)
 instance_file_shp <- system.file("extdata/Mitchell_data/", "Fish_Mitchell.shp", package = "prioriactionsDynamics")
 input <- sf::read_sf(instance_file_shp)
 ```
 
-```{r}
+```{r, eval = FALSE}
 # Load the instance data file and convert it into a structured list for modeling
 # This includes information such as species distributions, initial threat location, cost data, and dynamics settings
 
