@@ -12,7 +12,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 // createModel_DynamicActions
 List createModel_DynamicActions(int n_units, int n_species, int n_threats, Rcpp::DataFrame Jk, Rcpp::DataFrame Ij, Rcpp::DataFrame Ik, Rcpp::DataFrame ExpansionType, Rcpp::DataFrame Dlong, Rcpp::DataFrame Adyacency, Rcpp::DataFrame Dradial, Rcpp::DataFrame Ck, int levels, int periods, double budget_per_period, int objective);
-RcppExport SEXP _dynamicsthR_createModel_DynamicActions(SEXP n_unitsSEXP, SEXP n_speciesSEXP, SEXP n_threatsSEXP, SEXP JkSEXP, SEXP IjSEXP, SEXP IkSEXP, SEXP ExpansionTypeSEXP, SEXP DlongSEXP, SEXP AdyacencySEXP, SEXP DradialSEXP, SEXP CkSEXP, SEXP levelsSEXP, SEXP periodsSEXP, SEXP budget_per_periodSEXP, SEXP objectiveSEXP) {
+RcppExport SEXP _prioriactionsDynamics_createModel_DynamicActions(SEXP n_unitsSEXP, SEXP n_speciesSEXP, SEXP n_threatsSEXP, SEXP JkSEXP, SEXP IjSEXP, SEXP IkSEXP, SEXP ExpansionTypeSEXP, SEXP DlongSEXP, SEXP AdyacencySEXP, SEXP DradialSEXP, SEXP CkSEXP, SEXP levelsSEXP, SEXP periodsSEXP, SEXP budget_per_periodSEXP, SEXP objectiveSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -39,12 +39,12 @@ END_RCPP
 RcppExport SEXP _rcpp_module_boot_yada();
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_dynamicsthR_createModel_DynamicActions", (DL_FUNC) &_dynamicsthR_createModel_DynamicActions, 15},
+    {"_prioriactionsDynamics_createModel_DynamicActions", (DL_FUNC) &_prioriactionsDynamics_createModel_DynamicActions, 15},
     {"_rcpp_module_boot_yada", (DL_FUNC) &_rcpp_module_boot_yada, 0},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_dynamicsthR(DllInfo *dll) {
+RcppExport void R_init_prioriactionsDynamics(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

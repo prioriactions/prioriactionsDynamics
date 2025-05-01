@@ -42,6 +42,8 @@ List createModel_DynamicActions(int n_units,
   // Get the number of rows and columns in the data frame
   int numRows = Jk.nrows();
   int numCols = Jk.size();
+  int df_row;
+  int df_col;
 
   // Iterate through rows and columns of the data frame
   for (int j = 0; j < numCols; ++j) {
@@ -103,8 +105,8 @@ List createModel_DynamicActions(int n_units,
   // Get the number of rows and columns in the data frame
   numRows = Dlong.nrows();
   numCols = Dlong.size();
-  int df_row;
-  int df_col;
+  // int df_row;
+  // int df_col;
   double df_value;
   
   // Iterate through rows and columns of the data frame
@@ -226,6 +228,8 @@ List createModel_DynamicActions(int n_units,
     }
   }
   
+  //std::cout<<"Creation 1"<<std::endl;
+  
   //V_kitn: Binary variable that indicates whether exists the threat k with level n 
   //in the unit i in the time t
   for (int i=0;i<n_units;i++)
@@ -257,6 +261,7 @@ List createModel_DynamicActions(int n_units,
       }
     }
   }
+  //std::cout<<"Creation 2"<<std::endl;
   
   //W_it: Binary variable that indicates if the unit i in the period t is selected to be monitoring
   for (int i=0;i<n_units;i++)
@@ -271,9 +276,10 @@ List createModel_DynamicActions(int n_units,
       obj.push_back(0);
     }
   }
+  //std::cout<<"Creation 3"<<std::endl;
   
   //Y_ist: Binary variable indicating if the species s exists in the unit i in the period t
-  Rcpp::NumericVector J_richness;
+  Rcpp::NumericVector J_richness(n_species, 0.0);
   int sum_richness;
   
   for(int s=0;s<n_species;s++){
@@ -286,6 +292,7 @@ List createModel_DynamicActions(int n_units,
     }
     J_richness[s] = sum_richness; 
   }
+  //std::cout<<"Creation 4"<<std::endl;
   
   for (int i=0;i<n_units;i++)
   {
@@ -316,6 +323,7 @@ List createModel_DynamicActions(int n_units,
       }
     }
   }
+  //std::cout<<"Creation 5"<<std::endl;
   
   //Budget per period (variable)
   for (int t=0; t<periods; t++)
@@ -360,6 +368,7 @@ List createModel_DynamicActions(int n_units,
       
       if(matrix_IK[i][k] > 0)
       {
+        //std::cout<<matrix_IK[i][k]<<std::endl;
         std::string name_vn = "v_" + std::to_string(i) + "_" + std::to_string(k) + "_" + std::to_string(0) + "_" + std::to_string(matrix_IK[i][k]);
         auto pos_vn = find(n_variable.begin(), n_variable.end(), name_vn) - n_variable.begin();
         

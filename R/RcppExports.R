@@ -2,6 +2,6 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 createModel_DynamicActions <- function(n_units, n_species, n_threats, Jk, Ij, Ik, ExpansionType, Dlong, Adyacency, Dradial, Ck, levels, periods, budget_per_period, objective) {
-    .Call(`_dynamicsthR_createModel_DynamicActions`, n_units, n_species, n_threats, Jk, Ij, Ik, ExpansionType, Dlong, Adyacency, Dradial, Ck, levels, periods, budget_per_period, objective)
+    .Call('_prioriactionsDynamics_createModel_DynamicActions', PACKAGE = 'prioriactionsDynamics', n_units, n_species, n_threats, Jk, Ij, Ik, ExpansionType, Dlong, Adyacency, Dradial, Ck, levels, periods, budget_per_period, objective)
 }
 

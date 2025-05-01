@@ -14,7 +14,7 @@
 #'
 #' @return A list representing the instance with various components.
 #' @export
-#' @import dplyr, stringr
+#' @import dplyr stringr
 #' @examples
 #' instance(type = "simulation", n = 10, species = 4, threats = 1)
 #' instance(type = "file", file = "path/to/instance_data.txt")

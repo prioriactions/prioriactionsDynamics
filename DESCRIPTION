@@ -1,17 +1,30 @@
-Package: dynamicsthR
+Package: prioriactionsDynamics
 Type: Package
 Title: Dynamic Conservation Action Planning with Mathematical Programming
 Version: 1.0
-Date: 2023-11-23
+Date: 2025-3-10
 Author: José Salgado-Rojas
 Maintainer: José Salgado-Rojas <jose.salgroj@gmail.com>
-Description: One paragraph description of what the package does as one or more full sentences.
+Description: The prioriactionsDynamics package is a powerful tool designed for deterministic dynamic mathematical modeling, specifically tailored for guiding conservation action planning. By utilizing integer programming models, this package simulates various threats, aiding decision-makers in determining optimal conservation actions, their locations, and timing.
 License: GPL (>= 2)
 Imports: 
     Rcpp (>= 1.0.11),
-    dplyr,
     stringr,
     rcbc
 Depends:
+    R (>= 3.5.0),
     dplyr
+Suggests: 
+    gurobi (>= 9.0)
 LinkingTo: Rcpp
+Encoding: UTF-8
+RoxygenNote: 7.3.2
+Collate: 
+    'RcppExports.R'
+    'getActions.R'
+    'getBenefits.R'
+    'getPropagation.R'
+    'instance.R'
+    'internals.R'
+    'model.R'
+    'solve.R'

@@ -1,3 +1,6 @@
+#' @include internals.R
+NULL
+
 #' Solve a mathematical optimization problem using specified solver.
 #'
 #' This function takes an optimization problem represented by a list of matrices and vectors and solves it using either the CBC (Coin-OR branch-and-cut) or Gurobi solver.
@@ -13,7 +16,7 @@
 #' @export
 #' @examples
 #' solve(a, solver = "gurobi", cores = 2, verbose = TRUE, gap_limit = 0.0, time_limit = 100)
-solve <- function(a, solver = "gurobi", cores = 2L, verbose = TRUE, gap_limit = 0.0, time_limit = 100) {
+solve <- function(a, solver = "gurobi", cores = 2L, verbose = TRUE, gap_limit = 0.0, time_limit = 1000000) {
   
   # assert that arguments are valid
   assertthat::assert_that(
@@ -24,6 +27,17 @@ solve <- function(a, solver = "gurobi", cores = 2L, verbose = TRUE, gap_limit = 
     is.numeric(gap_limit),
     is.numeric(time_limit)
   )
+  
+  available_gurobi <- available_to_solve("gurobi")
+  available_cbc <- available_to_solve("cbc")
+  
+  if (requireNamespace("gurobi", quietly = TRUE) && available_gurobi) {
+    solver_default <- "gurobi"
+  }else if (requireNamespace("rcbc", quietly = TRUE) && available_cbc) {
+    solver_default <- "cbc"
+  }else {
+    stop("No optimization problem solvers availables on system")
+  }
   
   # Rename the input list for better readability
   model = a

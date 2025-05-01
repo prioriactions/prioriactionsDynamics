@@ -65,7 +65,7 @@ m <- prioriactionsDynamics::model(
 Example:
 
 ```{r, echo=FALSE}
-solution <- prioriactionsDynamics:solve(model = m, solver = "gurobi")
+solution <- prioriactionsDynamics::solve(model = m, solver = "gurobi")
 
 ```
 
@@ -81,7 +81,7 @@ These functions can be valuable for further analysis and decision-making based o
 
 ## **Example of use**
 
-To showcase the capabilities of the `dynamicsthR` package, we present a simulated example. In this scenario, we begin by defining an expansion type matrix (`expType`) with a single non-zero element representing a specific place where the threat appear. We then use the `instance()` function to generate simulated inputs for a dynamic conservation model. These inputs include specifications for one threat, a 10 x 10 grid of units (100 in total), and two species, both responsive to the threat. With predefined threat locations and the previously defined expansion type (see the Figure below). Subsequently, we create a dynamic model (`m1`) using the `model()` function, specifying the desired maximum levels of intensity of the threat, number of planning periods, and an annual budget. Finally, we employ the `solve()` function to solve the optimization problem and obtain the solution (`sol`). This example provides a starting point for understanding the workflow of the `dynamicsthR` package, from input generation to solving dynamic conservation planning problems. Feel free to modify the parameters and inputs.
+To showcase the capabilities of the `prioriactionsDynamics` package, we present a simulated example. In this scenario, we begin by defining an expansion type matrix (`expType`) with a single non-zero element representing a specific place where the threat appear. We then use the `instance()` function to generate simulated inputs for a dynamic conservation model. These inputs include specifications for one threat, a 10 x 10 grid of units (100 in total), and two species, both responsive to the threat. With predefined threat locations and the previously defined expansion type (see the Figure below). Subsequently, we create a dynamic model (`m1`) using the `model()` function, specifying the desired maximum levels of intensity of the threat, number of planning periods, and an annual budget. Finally, we employ the `solve()` function to solve the optimization problem and obtain the solution (`sol`). This example provides a starting point for understanding the workflow of the `prioriactionsDynamics` package, from input generation to solving dynamic conservation planning problems. Feel free to modify the parameters and inputs.
 
 ```{r, echo=FALSE}
 library(prioriactionsDynamics)
@@ -103,7 +103,7 @@ In the initial scenario, we employed an expansion type characterized solely as r
 
 ```{r, echo=FALSE}
 m1 <- model(input = inputs, levels = 4L, periods = 10L, budget = 6)
-sol <- dynamicsthR::solve(m1, solver = "gurobi")
+sol <- prioriactionsDynamics::solve(m1, solver = "gurobi")
 
 actions <- prioriactionsDynamics::getActions(sol)
 prop <- prioriactionsDynamics::getPropagation(sol)
