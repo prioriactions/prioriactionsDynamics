@@ -89,13 +89,12 @@ Example:
         parameters.
     -   **`solver`**: A character specifying the solver to be
         used.Options are:
-
--   `'gurobi'`: a commercial solver known for its high performance.
-    Academic users can apply for a free license. See more at
-    [prioriactions
-    documentation](https://prioriactions.github.io/prioriactions/reference/solve.html).
--   `'cbc'`: an open-source solver that is free to use but may have
-    performance limitations for large instances.
+        -   `'gurobi'`: a commercial solver known for its high
+            performance. Academic users can apply for a free license.
+            See more at [prioriactions
+            documentation](https://prioriactions.github.io/prioriactions/reference/solve.html).
+        -   `'cbc'`: an open-source solver that is free to use but may
+            have performance limitations for large instances.
     -   **`cores`**: An integer specifying the number of processor cores
         to be used.
     -   **`verbose`**: A logical value indicating whether to print
