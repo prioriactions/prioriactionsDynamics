@@ -13,7 +13,7 @@ Ensure you have the “remotes” package installed. If not, install it
 using the following command:
 
     if (!require(remotes)) install.packages("remotes")
-    remotes::install_github("josesalgr/prioriactionsDynamics")
+    remotes::install_github("prioriactions/prioriactionsDynamics")
 
     library(prioriactionsDynamics)
 
